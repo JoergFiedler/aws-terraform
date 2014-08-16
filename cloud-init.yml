@@ -1,0 +1,5 @@
+#cloud-config
+output : { all : '| tee -a /var/log/cloud-init-output.log' }
+runcmd:
+  - [ sh, -c, "/usr/bin/docker login -e '' -p  -u " ]
+  - [ sh, -c, "/usr/bin/docker run --name buildagent --rm 'murdochjohn/images:latest' /bin/bash" ]

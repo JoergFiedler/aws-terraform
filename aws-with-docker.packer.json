@@ -1,0 +1,41 @@
+{
+  "variables": {
+    "access_key": "",
+    "secret_key": ""
+  },
+  "builders" : [ {
+    "type": "amazon-ebs",
+    "access_key": "{{user `access_key`}}",
+    "secret_key": "{{user `secret_key`}}",
+    "region": "eu-west-1",
+    "source_ami": "ami-672ce210",
+    "instance_type": "t1.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "AWS Linux with Docker (EBS-standard) {{isotime|clean_ami_name}}",
+    "ami_block_device_mappings": [
+      {
+        "device_name": "/dev/sdf",
+        "volume_type": "standard",
+        "volume_size": 30,
+        "delete_on_termination": true
+      }
+    ],
+    "run_tags" : {
+      "Name": "Packer AMI"
+    },
+    "tags" : {
+      "Name": "Amazon Linux with Docker",
+      "OS": "AWS Linux",
+      "Type": "aws-linux"
+    }
+  } ],
+  "provisioners" : [
+    {
+      "type": "shell",
+      "scripts":[
+        "bootstrap.sh",
+        "cleanup.sh"
+      ]
+    }
+  ]
+}
