@@ -1,5 +1,7 @@
 ---
-- name: Install sshd
-  yum: pkg=openssh-server
-       state=latest
+- hosts: all
+  tasks:
+  - name: Install sshd
+    yum: pkg=openssh-server
+         state=latest
 

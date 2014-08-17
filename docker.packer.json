@@ -8,6 +8,11 @@
   ],
   "provisioners" : [
     {
+      "type":"file",
+      "source": "yum.repos.d/is24.repo/",
+      "destination": "/etc/yum.repos.d"
+    },
+    {
       "type": "shell",
       "inline": [
         "rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm",

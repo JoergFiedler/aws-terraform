@@ -1,0 +1,23 @@
+[is24-dev]
+name=IS24 DEV Repo
+baseurl=http://yum.rz.is/repo/is24-dev
+enabled=1
+protect=0
+gpgcheck=0
+metadata_expire=30s
+
+[is24-tuv]
+name = IS24 TUV Repo
+baseurl = http://yum.rz.is/repo/is24-tuv
+enabled = 1
+protect = 0
+gpgcheck = 0
+metadata_expire = 30s
+
+[is24-pro]
+name=IS24 PRO Repo
+baseurl=http://yum.rz.is/repo/is24-pro
+enabled=1
+protect=0
+gpgcheck=0
+metadata_expire=30s
