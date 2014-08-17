@@ -22,6 +22,7 @@
     },
     {
       "type": "ansible-local",
+      "playbook_dir": "docker-provisioning",
       "playbook_file": "docker-provisioning/site.yml"
     }
   ],
