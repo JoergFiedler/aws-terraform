@@ -1,5 +1,5 @@
 ---
 - name: Install sshd
-  apt_rpm: pkg=openssh-server
-           state=present
+  yum: pkg=openssh-server
+       state=latest
 
