@@ -1,7 +1,0 @@
----
-- name: Install Docker RPM
-  apt_rpm: pkg=docker-io
-           state=present
-- name: Install sshd
-  apt_rpm: pkg=openssh-server
-           state=present

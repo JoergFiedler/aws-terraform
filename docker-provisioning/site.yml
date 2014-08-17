@@ -1,6 +1,5 @@
-
 ---
-- hosts: all
-  roles:
-  - role: buildagent
+- name: Install sshd
+  apt_rpm: pkg=openssh-server
+           state=present
 
