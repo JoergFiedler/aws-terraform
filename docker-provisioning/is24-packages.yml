@@ -1,4 +1,30 @@
 ---
 - name: Install bash-essentials
   yum: pkg=bash-essentials state=latest
+- name: Apache Maven
+  yum: pkg=is24-apache-maven state=latest
+- name: Auditd
+  yum: pkg=is24-auditd state=latest
+- name: IS24 Firefox
+  yum: pkg=is24-firefox24 state=latest
+- name: IS24 JDK 7 
+  yum: pkg=is24-jdk-7 state=latest
+- name: IS24 Jenkins Agent
+  yum: pkg=is24-jenkins-agent state=latest
+- name: IS24 MongoDb
+  yum: pkg=is24-mongodb state=latest
+- name: IS24 Monitoring Client
+  yum: pkg=is24-monitoring-client state=latest
+- name: IS24 PhantomJS package
+  yum: pkg=is24-phantomjs state=latest
+- name: IS24 PHP Project Dependencies
+  yum: pkg=is24-php-dependencies state=latest
+- name: IS24 Yum repoclient
+  yum: pkg=is24-repoclient state=latest
+- name: IS24 sysctl
+  yum: pkg=is24-sysctl state=latest
+- name: Karma JS Runner
+  yum: pkg=karma-runner state=latest
+- name: YadtController
+  yum: pkg=yadtcontroller state=latest
 

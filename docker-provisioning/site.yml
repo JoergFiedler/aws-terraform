@@ -3,7 +3,43 @@
   tasks:
   - name: Install sshd
     yum: pkg=openssh-server state=latest
+  - name: Git
+    yum: pkg=git state=latest
+  - name: Subversion
+    yum: pkg=subversion state=latest
+  - name: lcov
+    yum: pkg=lcov state=latest
+  - name: LibJpeg
+    yum: pkg=libjpeg-turbo-devel state=latest
+
+  - name: NodeJS
+    yum: pkg=nodejs state=latest
+  - name: NPM
+    yum: pkg=npm state=latest
+  - name: PHP Mongo
+    yum: pkg=php-pecl-mongo state=latest
+
+  - name: PHP Mongo (Glocknerwand)
+    yum: pkg=php-pecl-mongo state=latest
+
   - name: Install PyYAML
     yum: pkg=PyYAML state=latest
+  - name: Install Python
+    yum: pkg=python state=latest
+  - name: Install Python Boto (AWS)
+    yum: pkg=python-boto state=latest
+  - name: Install Python Imaging
+    yum: pkg=python-imaging state=latest
+  - name: Install Python VirtualEnv
+    yum: pkg=python-virtualenv state=latest
+
+  - name: Install Scale Build Tools
+    yum: pkg=sbt state=latest
+
+  - name: Install RPM Build Tools
+    yum: pkg=rpm-build state=latest
+
+  - name: Install Xvfb Frame Buffer Lib
+    yum: pkg=xorg-x11-server-Xvfb state=latest
 
   - include: is24-packages.yml
