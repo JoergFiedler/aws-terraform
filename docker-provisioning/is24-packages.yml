@@ -1,0 +1,4 @@
+---
+- name: Install bash-essentials
+  yum: pkg=bash-essentials state=latest
+

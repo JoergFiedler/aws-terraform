@@ -2,6 +2,8 @@
 - hosts: all
   tasks:
   - name: Install sshd
-    yum: pkg=openssh-server
-         state=latest
+    yum: pkg=openssh-server state=latest
+  - name: Install PyYAML
+    yum: pkg=PyYAML state=latest
 
+  - include: is24-packages.yml
