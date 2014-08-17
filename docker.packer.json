@@ -3,7 +3,8 @@
     {
       "type": "docker",
       "image": "centos:centos6",
-      "export_path": "image.tar"
+      "export_path": "image.tar",
+      "run_command": ["run", "-d", "-p", "2422:22", "--name", "agent", "{{.Image}}"]
     }
   ],
   "provisioners" : [
