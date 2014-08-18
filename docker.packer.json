@@ -3,14 +3,15 @@
     {
       "type": "docker",
       "image": "centos:centos6",
-      "export_path": "image.tar"
+      "export_path": "image.tar",
+      "run_command": ["run", "--dns=10.23.31.11", "-d", "-i", "-t", "-v", "{{.Volumes}}", "{{.Image}}", "/bin/bash"]
     }
   ],
   "provisioners" : [
     {
       "type":"file",
-      "source": "yum.repos.d/",
-      "destination": "/etc/yum.repos.d"
+      "source": "etc/",
+      "destination": "/etc"
     },
     {
       "type": "shell",
@@ -22,6 +23,7 @@
     },
     {
       "type": "ansible-local",
+      "extra_arguments": ["-v"],
       "playbook_dir": "docker-provisioning",
       "playbook_file": "docker-provisioning/site.yml"
     }

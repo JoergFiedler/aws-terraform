@@ -1,45 +1,32 @@
 ---
 - hosts: all
   tasks:
-  - name: Install sshd
-    yum: pkg=openssh-server state=latest
-  - name: Git
-    yum: pkg=git state=latest
-  - name: Subversion
-    yum: pkg=subversion state=latest
-  - name: lcov
-    yum: pkg=lcov state=latest
-  - name: LibJpeg
-    yum: pkg=libjpeg-turbo-devel state=latest
+  - name: Install common stuff
+    yum: name={{ item }} state=latest
+    with_items:
+      - openssh-server
+      - lcov
+      - libjpeg-turbo
+      - xorg-x11-server-Xvfb
+      - rpm-build
 
-  - name: NodeJS
-    yum: pkg=nodejs state=latest
-  - name: NPM
-    yum: pkg=npm state=latest
-  - name: PHP Mongo
-    yum: pkg=php-pecl-mongo state=latest
+  - name: Install SCM systems
+    yum: name={{ item }} state=latest
+    with_items:
+      - git
+      - subversion
 
-  - name: PHP Mongo (Glocknerwand)
-    yum: pkg=php-pecl-mongo state=latest
-
-  - name: Install PyYAML
-    yum: pkg=PyYAML state=latest
-  - name: Install Python
-    yum: pkg=python state=latest
-  - name: Install Python Boto (AWS)
-    yum: pkg=python-boto state=latest
-  - name: Install Python Imaging
-    yum: pkg=python-imaging state=latest
-  - name: Install Python VirtualEnv
-    yum: pkg=python-virtualenv state=latest
-
-  - name: Install Scale Build Tools
-    yum: pkg=sbt state=latest
-
-  - name: Install RPM Build Tools
-    yum: pkg=rpm-build state=latest
-
-  - name: Install Xvfb Frame Buffer Lib
-    yum: pkg=xorg-x11-server-Xvfb state=latest
+  - name: Install build tools
+    yum: name={{ item }} state=latest
+    with_items:
+      - nodejs
+      - npm
+      - php-pecl-mongo
+      - PyYAML
+      - python
+      - python-boto
+      - python-imaging
+      - python-virtualenv
+      - sbt
 
   - include: is24-packages.yml
